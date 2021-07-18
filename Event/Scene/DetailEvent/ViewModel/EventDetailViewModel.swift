@@ -9,22 +9,22 @@ import RxSwift
 import RxCocoa
 
 protocol EventDetailViewModelProtocol {
-    var eventTitle: PublishSubject<String> { get }
-    var eventDate: PublishSubject<String> { get }
-    var eventPrice: PublishSubject<String> { get }
-    var eventDescription: PublishSubject<String> { get }
-    var eventImage: PublishSubject<UIImage?> { get }
+    var eventTitle: BehaviorRelay<String> { get }
+    var eventDate: BehaviorRelay<String> { get }
+    var eventPrice: BehaviorRelay<String> { get }
+    var eventDescription: BehaviorRelay<String> { get }
+    var eventImage: BehaviorRelay<UIImage?> { get }
     var eventCoordinate: Coordinates? { get }
     var eventRequestStatus: PublishSubject<Bool> { get }
 }
 
 class EventDetailViewModel: EventDetailViewModelProtocol {
     
-    var eventTitle = PublishSubject<String>()
-    var eventDate = PublishSubject<String>()
-    var eventPrice = PublishSubject<String>()
-    var eventDescription = PublishSubject<String>()
-    var eventImage = PublishSubject<UIImage?>()
+    var eventTitle = BehaviorRelay<String>(value: "")
+    var eventDate = BehaviorRelay<String>(value: "")
+    var eventPrice = BehaviorRelay<String>(value: "")
+    var eventDescription = BehaviorRelay<String>(value: "")
+    var eventImage = BehaviorRelay<UIImage?>(value: nil)
     var eventCoordinate: Coordinates?
     let eventRequestStatus = PublishSubject<Bool>()
     
@@ -41,9 +41,9 @@ class EventDetailViewModel: EventDetailViewModelProtocol {
     func getImage(from url: String) {
         repository.getData(url: url)
             .subscribe { data in
-                self.eventImage.onNext(UIImage(data: data))
+                self.eventImage.accept(UIImage(data: data))
             } onError: { error in
-                self.eventImage.onNext(UIImage(named: "image-not-found"))
+                self.eventImage.accept(UIImage(named: "image-not-found"))
             }
             .disposed(by: disposeBag)
     }
@@ -52,10 +52,10 @@ class EventDetailViewModel: EventDetailViewModelProtocol {
         repository.getEvent(by: eventId)
             .subscribe { event in
                 self.getImage(from: event.image)
-                self.eventTitle.onNext(event.title)
-                self.eventDate.onNext(event.date.timestampToDate.toString(format: .ddMMYYYY))
-                self.eventPrice.onNext(event.price.toCurrency(.real))
-                self.eventDescription.onNext(event.description)
+                self.eventTitle.accept(event.title)
+                self.eventDate.accept(event.date.timestampToDate.toString(format: .ddMMYYYY))
+                self.eventPrice.accept(event.price.toCurrency(.real))
+                self.eventDescription.accept(event.description)
                 self.eventCoordinate = Coordinates(longitude: event.longitude, latitude: event.latitude)
                 self.eventRequestStatus.onNext(true)
             } onError: { _ in

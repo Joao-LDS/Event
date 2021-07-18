@@ -33,6 +33,8 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setActivityIndicator()
+        setupNavigationBar()
+        setupView()
         bind()
     }
     
@@ -48,6 +50,38 @@ class EventDetailViewController: UIViewController {
         
         activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareAction))
+    }
+    
+    func setupView() {
+        uiview.locationButton.addTarget(self, action: #selector(openMap), for: .touchUpInside)
+    }
+    
+    @objc func shareAction() {
+        let items = [
+            viewModel.eventTitle.value,
+            viewModel.eventPrice.value,
+            viewModel.eventDate.value
+        ]
+        let controller = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(controller, animated: true, completion: nil)
+    }
+    
+    @objc func openMap() {
+        guard let coordinates = viewModel.eventCoordinate else {
+            present(CommonAlert.createAlert(title: "Desculpe",
+                                            message: "Não conseguimos localizar esse evento.",
+                                            cancelCompletion: {
+                                                self.dismiss(animated: true)
+                                            }), animated: true)
+            return
+        }
+        let viewModel = MapViewModel(coordinates: coordinates)
+        let controller = MapViewController(viewModel: viewModel)
+        present(controller, animated: true)
     }
     
     func bind() {

@@ -31,6 +31,8 @@
 		FD7E7DA126A4947900BFA522 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7DA026A4947900BFA522 /* EventDetailViewController.swift */; };
 		FD7E7DA626A494EB00BFA522 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7DA526A494EB00BFA522 /* Coordinates.swift */; };
 		FD7E7DB526A4A48200BFA522 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7DB426A4A48200BFA522 /* Double+Extension.swift */; };
+		FD7E7DBB26A4A75D00BFA522 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7DBA26A4A75D00BFA522 /* MapViewModel.swift */; };
+		FD7E7DC326A4A76C00BFA522 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7DC226A4A76C00BFA522 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		FD7E7DA026A4947900BFA522 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		FD7E7DA526A494EB00BFA522 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		FD7E7DB426A4A48200BFA522 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		FD7E7DBA26A4A75D00BFA522 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		FD7E7DC226A4A76C00BFA522 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,7 +289,8 @@
 		FD7E7D5526A48AAF00BFA522 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				FD7E7D6726A48B8900BFA522 /* CommonAlert.swift */,
+				FD7E7DC726A4A7E700BFA522 /* Alert */,
+				FD7E7DB926A4A74D00BFA522 /* MapView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -325,6 +330,23 @@
 				FD7E7DA026A4947900BFA522 /* EventDetailViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FD7E7DB926A4A74D00BFA522 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7DBA26A4A75D00BFA522 /* MapViewModel.swift */,
+				FD7E7DC226A4A76C00BFA522 /* MapViewController.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		FD7E7DC726A4A7E700BFA522 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7D6726A48B8900BFA522 /* CommonAlert.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -571,6 +593,7 @@
 				FD7E7DB526A4A48200BFA522 /* Double+Extension.swift in Sources */,
 				FD7E7D9426A493AF00BFA522 /* EventDetailViewModel.swift in Sources */,
 				FD7E7CD126A47E9400BFA522 /* AppDelegate.swift in Sources */,
+				FD7E7DC326A4A76C00BFA522 /* MapViewController.swift in Sources */,
 				FD7E7DA126A4947900BFA522 /* EventDetailViewController.swift in Sources */,
 				FD7E7DA626A494EB00BFA522 /* Coordinates.swift in Sources */,
 				FD7E7D9C26A493C600BFA522 /* EventDetailView.swift in Sources */,
@@ -581,6 +604,7 @@
 				FD7E7D3D26A4821500BFA522 /* APIRequest.swift in Sources */,
 				FD7E7D4426A482C800BFA522 /* Event.swift in Sources */,
 				FD7E7D1F26A4815D00BFA522 /* EventListViewModel.swift in Sources */,
+				FD7E7DBB26A4A75D00BFA522 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
