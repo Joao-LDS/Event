@@ -19,4 +19,8 @@ class EventsService: BaseService {
     func getData(url: String) -> Observable<Data> {
         return requestData(url)
     }
+    
+    func postCheckin(params: [String: String]) -> Observable<Bool> {
+        return post(params, endPoint: APIRequest.checkin.endPoint)
+    }
 }

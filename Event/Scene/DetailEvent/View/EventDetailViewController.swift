@@ -32,6 +32,7 @@ class EventDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.getEvent()
         setActivityIndicator()
         setupNavigationBar()
         setupView()
@@ -58,6 +59,7 @@ class EventDetailViewController: UIViewController {
     
     func setupView() {
         uiview.locationButton.addTarget(self, action: #selector(openMap), for: .touchUpInside)
+        uiview.checkinButton.addTarget(self, action: #selector(checkin), for: .touchUpInside)
     }
     
     func bind() {
@@ -91,10 +93,25 @@ class EventDetailViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        viewModel.eventCheckinStatus
+            .subscribe(onNext: { status in
+                self.checkinStatus(done: status)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func checkinStatus(done: Bool) {
+        let title = done ? "Sucesso" : "Desculpe"
+        let message = done ? "Checkin feito com sucesso." : "Algo deu errado."
+        let alert = CommonAlert.createAlert(title: title, message: message) {
+            self.dismiss(animated: true)
+        }
+        present(alert, animated: true)
     }
     
     func requestError() {
-        let alert = CommonAlert.createAlert(title: "Desculpe", message: "Não foi possível buscar os dados do evento.") {
+        let alert = CommonAlert.createAlert(title: "Desculpe", message: "Algo deu errado.") {
             self.navigationController?.popViewController(animated: true)
         }
         present(alert, animated: true)
@@ -122,6 +139,10 @@ class EventDetailViewController: UIViewController {
         let viewModel = MapViewModel(coordinates: coordinates)
         let controller = MapViewController(viewModel: viewModel)
         present(controller, animated: true)
+    }
+    
+    @objc func checkin() {
+        viewModel.postCheckin()
     }
 
 }

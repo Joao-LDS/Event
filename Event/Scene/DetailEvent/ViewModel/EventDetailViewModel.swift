@@ -16,6 +16,9 @@ protocol EventDetailViewModelProtocol {
     var eventImage: BehaviorRelay<UIImage?> { get }
     var eventCoordinate: Coordinates? { get }
     var eventRequestStatus: PublishSubject<Bool> { get }
+    var eventCheckinStatus: PublishSubject<Bool> { get }
+    func postCheckin()
+    func getEvent()
 }
 
 class EventDetailViewModel: EventDetailViewModelProtocol {
@@ -27,6 +30,7 @@ class EventDetailViewModel: EventDetailViewModelProtocol {
     var eventImage = BehaviorRelay<UIImage?>(value: nil)
     var eventCoordinate: Coordinates?
     let eventRequestStatus = PublishSubject<Bool>()
+    let eventCheckinStatus = PublishSubject<Bool>()
     
     private let eventId: String
     private let repository: EventsService
@@ -35,7 +39,6 @@ class EventDetailViewModel: EventDetailViewModelProtocol {
     init(eventId: String, repository: EventsService = EventsService()) {
         self.eventId = eventId
         self.repository = repository
-        getEvent()
     }
     
     func getImage(from url: String) {
@@ -60,6 +63,15 @@ class EventDetailViewModel: EventDetailViewModelProtocol {
                 self.eventRequestStatus.onNext(true)
             } onError: { _ in
                 self.eventRequestStatus.onNext(false)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func postCheckin() {
+        let params = ["eventId": eventId, "name": "nome", "email": "email"]
+        repository.postCheckin(params: params)
+            .subscribe { status in
+                self.eventCheckinStatus.onNext(status.element ?? false)
             }
             .disposed(by: disposeBag)
     }

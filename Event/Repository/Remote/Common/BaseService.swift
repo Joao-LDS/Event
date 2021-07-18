@@ -42,4 +42,22 @@ class BaseService {
             }
         }
     }
+    
+    public func post(_ params: [String: String], endPoint: String) -> Observable<Bool> {
+        return Observable.create { observer in
+            let post = AF.request(endPoint, method: .post,
+                                  parameters: params,
+                                  encoder: JSONParameterEncoder.prettyPrinted).response { response in
+                if let statusCode = response.response?.statusCode,
+                   (200..<300).contains(statusCode) {
+                    observer.onNext(true)
+                } else {
+                    observer.onNext(false)
+                }
+            }
+            return Disposables.create() {
+                post.cancel()
+            }
+        }
+    }
 }
