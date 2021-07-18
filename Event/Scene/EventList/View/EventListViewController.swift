@@ -68,7 +68,9 @@ class EventListViewController: UIViewController, UITableViewDelegate {
         
         tableView.rx.modelSelected(Event.self)
             .subscribe(onNext: { event in
-                print(event.title)
+                let viewModel = EventDetailViewModel(eventId: event.id)
+                let controller = EventDetailViewController(viewModel: viewModel)
+                self.navigationController?.pushViewController(controller, animated: true)
             })
             .disposed(by: disposeBag)
     }

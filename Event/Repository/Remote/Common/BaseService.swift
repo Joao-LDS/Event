@@ -25,4 +25,21 @@ class BaseService {
             }
         }
     }
+    
+    public func requestData(_ endPoint: String) -> Observable<Data> {
+        return Observable.create { observer in
+            let request = AF.request(endPoint).responseData { response in
+                if let statusCode = response.response?.statusCode,
+                   (200..<300).contains(statusCode),
+                   let data = response.data {
+                    observer.onNext(data)
+                } else {
+                    observer.onError(NSError())
+                }
+            }
+            return Disposables.create() {
+                request.cancel()
+            }
+        }
+    }
 }
