@@ -62,8 +62,6 @@ class EventDetailViewModel: EventDetailViewModelProtocol {
                 self.eventRequestStatus.onNext(false)
             }
             .disposed(by: disposeBag)
-        
-        
     }
 }
 

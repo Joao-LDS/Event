@@ -10,7 +10,7 @@ import RxSwift
 
 class EventDetailViewController: UIViewController {
     
-    private var viewModel: EventDetailViewModel
+    private var viewModel: EventDetailViewModelProtocol
     private let uiview: EventDetailView
     private let disposeBag = DisposeBag()
     
@@ -20,7 +20,7 @@ class EventDetailViewController: UIViewController {
         return view
     }()
     
-    init(viewModel: EventDetailViewModel) {
+    init(viewModel: EventDetailViewModelProtocol) {
         self.viewModel = viewModel
         self.uiview = EventDetailView()
         super.init(nibName: nil, bundle: nil)
@@ -58,30 +58,6 @@ class EventDetailViewController: UIViewController {
     
     func setupView() {
         uiview.locationButton.addTarget(self, action: #selector(openMap), for: .touchUpInside)
-    }
-    
-    @objc func shareAction() {
-        let items = [
-            viewModel.eventTitle.value,
-            viewModel.eventPrice.value,
-            viewModel.eventDate.value
-        ]
-        let controller = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        present(controller, animated: true, completion: nil)
-    }
-    
-    @objc func openMap() {
-        guard let coordinates = viewModel.eventCoordinate else {
-            present(CommonAlert.createAlert(title: "Desculpe",
-                                            message: "Não conseguimos localizar esse evento.",
-                                            cancelCompletion: {
-                                                self.dismiss(animated: true)
-                                            }), animated: true)
-            return
-        }
-        let viewModel = MapViewModel(coordinates: coordinates)
-        let controller = MapViewController(viewModel: viewModel)
-        present(controller, animated: true)
     }
     
     func bind() {
@@ -122,6 +98,30 @@ class EventDetailViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
         present(alert, animated: true)
+    }
+    
+    @objc func shareAction() {
+        let items = [
+            viewModel.eventTitle.value,
+            viewModel.eventPrice.value,
+            viewModel.eventDate.value
+        ]
+        let controller = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(controller, animated: true, completion: nil)
+    }
+    
+    @objc func openMap() {
+        guard let coordinates = viewModel.eventCoordinate else {
+            present(CommonAlert.createAlert(title: "Desculpe",
+                                            message: "Não conseguimos localizar esse evento.",
+                                            cancelCompletion: {
+                                                self.dismiss(animated: true)
+                                            }), animated: true)
+            return
+        }
+        let viewModel = MapViewModel(coordinates: coordinates)
+        let controller = MapViewController(viewModel: viewModel)
+        present(controller, animated: true)
     }
 
 }

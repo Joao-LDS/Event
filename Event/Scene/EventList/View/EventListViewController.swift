@@ -10,7 +10,7 @@ import RxSwift
 
 class EventListViewController: UIViewController, UITableViewDelegate {
     
-    private let viewModel: EventListViewModel
+    private let viewModel: EventListViewModelProtocol
     private let disposeBag = DisposeBag()
     
     lazy var refreshControl: UIRefreshControl = {
@@ -28,7 +28,7 @@ class EventListViewController: UIViewController, UITableViewDelegate {
         return tableView
     }()
     
-    init(viewModel: EventListViewModel) {
+    init(viewModel: EventListViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -64,7 +64,6 @@ class EventListViewController: UIViewController, UITableViewDelegate {
                 self.refreshControl.endRefreshing()
             })
             .disposed(by: disposeBag)
-
         
         tableView.rx.modelSelected(Event.self)
             .subscribe(onNext: { event in
@@ -85,5 +84,5 @@ class EventListViewController: UIViewController, UITableViewDelegate {
     @objc func refresh() {
         viewModel.getEvents()
     }
-
+    
 }

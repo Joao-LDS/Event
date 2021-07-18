@@ -8,9 +8,9 @@
 import MapKit
 
 class MapViewController: UIViewController {
-
+    
     private let viewModel: MapViewModelProtocol
-
+    
     lazy var mapView: MKMapView = {
         let view = MKMapView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -48,13 +48,10 @@ class MapViewController: UIViewController {
     }
     
     func setupMap() {
-        let location = CLLocationCoordinate2D(latitude: viewModel.coordinates.latitude,
-                                              longitude: viewModel.coordinates.longitude)
+        let location = CLLocationCoordinate2D(latitude: viewModel.coordinates.latitude, longitude: viewModel.coordinates.longitude)
         mapView.setCenter(location, animated: true)
         
-        let region = MKCoordinateRegion(center: location,
-                                        span: MKCoordinateSpan(latitudeDelta: 0.01,
-                                                               longitudeDelta: 0.01))
+        let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         mapView.setRegion(region, animated: true)
         
         let pin = MKPointAnnotation()
@@ -65,7 +62,7 @@ class MapViewController: UIViewController {
     @objc func backAction() {
         dismiss(animated: true)
     }
-
+    
 }
 
 extension MapViewController: ConfigureView {
