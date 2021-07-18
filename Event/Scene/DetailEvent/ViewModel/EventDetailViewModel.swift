@@ -33,10 +33,10 @@ class EventDetailViewModel: EventDetailViewModelProtocol {
     let eventCheckinStatus = PublishSubject<Bool>()
     
     private let eventId: String
-    private let repository: EventsService
+    private let repository: EventsServiceProtocol
     private let disposeBag = DisposeBag()
     
-    init(eventId: String, repository: EventsService = EventsService()) {
+    init(eventId: String, repository: EventsServiceProtocol = EventsService()) {
         self.eventId = eventId
         self.repository = repository
     }

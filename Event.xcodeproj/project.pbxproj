@@ -32,6 +32,8 @@
 		FD7E7DB526A4A48200BFA522 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7DB426A4A48200BFA522 /* Double+Extension.swift */; };
 		FD7E7DBB26A4A75D00BFA522 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7DBA26A4A75D00BFA522 /* MapViewModel.swift */; };
 		FD7E7DC326A4A76C00BFA522 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7DC226A4A76C00BFA522 /* MapViewController.swift */; };
+		FD7E7DE526A4BD4900BFA522 /* events.json in Resources */ = {isa = PBXBuildFile; fileRef = FD7E7DE426A4BD4900BFA522 /* events.json */; };
+		FD7E7DEA26A4BD7500BFA522 /* EventsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7DE926A4BD7500BFA522 /* EventsServiceMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		FD7E7DB426A4A48200BFA522 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		FD7E7DBA26A4A75D00BFA522 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		FD7E7DC226A4A76C00BFA522 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FD7E7DE426A4BD4900BFA522 /* events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = events.json; sourceTree = "<group>"; };
+		FD7E7DE926A4BD7500BFA522 /* EventsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,7 @@
 		FD7E7CCF26A47E9400BFA522 /* Event */ = {
 			isa = PBXGroup;
 			children = (
+				FD7E7DD726A4BD1600BFA522 /* Support */,
 				FD7E7D5E26A48AF300BFA522 /* Utils */,
 				FD7E7D4226A482B900BFA522 /* Model */,
 				FD7E7D2B26A481C500BFA522 /* Repository */,
@@ -178,6 +183,7 @@
 			children = (
 				FD7E7CE726A47E9500BFA522 /* EventTests.swift */,
 				FD7E7CE926A47E9500BFA522 /* Info.plist */,
+				FD7E7DE926A4BD7500BFA522 /* EventsServiceMock.swift */,
 			);
 			path = EventTests;
 			sourceTree = "<group>";
@@ -341,6 +347,22 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		FD7E7DD726A4BD1600BFA522 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7DD826A4BD1C00BFA522 /* Mock */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		FD7E7DD826A4BD1C00BFA522 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7DE426A4BD4900BFA522 /* events.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -450,6 +472,7 @@
 			files = (
 				FD7E7CDD26A47E9500BFA522 /* LaunchScreen.storyboard in Resources */,
 				FD7E7CDA26A47E9500BFA522 /* Assets.xcassets in Resources */,
+				FD7E7DE526A4BD4900BFA522 /* events.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD7E7DEA26A4BD7500BFA522 /* EventsServiceMock.swift in Sources */,
 				FD7E7CE826A47E9500BFA522 /* EventTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

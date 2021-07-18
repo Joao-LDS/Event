@@ -7,7 +7,14 @@
 
 import RxSwift
 
-class EventsService: BaseService {
+protocol EventsServiceProtocol {
+    func getEvents() -> Observable<[Event]>
+    func getEvent(by id: String) -> Observable<Event>
+    func getData(url: String) -> Observable<Data>
+    func postCheckin(params: [String: String]) -> Observable<Bool>
+}
+
+class EventsService: BaseService, EventsServiceProtocol {
     func getEvents() -> Observable<[Event]> {
         return request(APIRequest.events.endPoint)
     }

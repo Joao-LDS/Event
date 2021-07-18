@@ -18,10 +18,10 @@ class EventListViewModel: EventListViewModelProtocol {
     
     let events = PublishSubject<[Event]>()
     let eventRequestStatus = BehaviorRelay<Bool>(value: true)
-    private let repository: EventsService
+    private let repository: EventsServiceProtocol
     private let disposeBag = DisposeBag()
     
-    init(repository: EventsService = EventsService()) {
+    init(repository: EventsServiceProtocol = EventsService()) {
         self.repository = repository
     }
     
