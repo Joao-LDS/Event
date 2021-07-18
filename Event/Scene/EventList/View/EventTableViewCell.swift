@@ -29,9 +29,9 @@ class EventTableViewCell: UITableViewCell {
     lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemTeal
+        view.backgroundColor = .systemGray
         view.layer.cornerRadius = 8
-        view.alpha = 0.5
+        view.alpha = 0.1
         return view
     }()
     
@@ -50,20 +50,19 @@ class EventTableViewCell: UITableViewCell {
 extension EventTableViewCell: ConfigureView {
     func addSubviews() {
         addSubview(containerView)
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(dateLabel)
+        addSubview(titleLabel)
+        addSubview(dateLabel)
     }
     
     func addConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
-            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: -6),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
             
-            dateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
-            dateLabel.leadingAnchor.constraint(equalTo: containerView.centerXAnchor, constant: 6),
-            dateLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 6),
+            dateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 26),
+            dateLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
             
             containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 6),
             containerView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
