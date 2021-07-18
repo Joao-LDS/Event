@@ -6,26 +6,33 @@
 //
 
 import RxSwift
+import RxCocoa
 
 protocol EventListViewModelProtocol {
-    
+    var events: PublishSubject<[Event]> { get }
+    var eventRequestStatus: BehaviorRelay<Bool> { get }
+    func getEvents()
 }
 
 class EventListViewModel: EventListViewModelProtocol {
     
+    let events = PublishSubject<[Event]>()
+    let eventRequestStatus = BehaviorRelay<Bool>(value: true)
     private let repository: EventsService
     private let disposeBag = DisposeBag()
     
     init(repository: EventsService = EventsService()) {
         self.repository = repository
-        getEvents()
     }
     
     func getEvents() {
         repository.getEvents()
             .subscribe { events in
-            print(events)
-        }
-        .disposed(by: disposeBag)
+                self.eventRequestStatus.accept(true)
+                self.events.onNext(events)
+            } onError: { error in
+                self.eventRequestStatus.accept(false)
+            }
+            .disposed(by: disposeBag)
     }
 }
