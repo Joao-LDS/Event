@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,13 +11,16 @@
 		44CF3DFDAA3CDE79D736D75B /* Pods_EventTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F29DF83CDE5365A45CEB3D7F /* Pods_EventTests.framework */; };
 		B07BEB2B872B29ED26088C09 /* Pods_Event_EventUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AA7E2E6CE256759F34DDCE /* Pods_Event_EventUITests.framework */; };
 		FD7E7CD126A47E9400BFA522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7CD026A47E9400BFA522 /* AppDelegate.swift */; };
-		FD7E7CD326A47E9400BFA522 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7CD226A47E9400BFA522 /* SceneDelegate.swift */; };
-		FD7E7CD526A47E9400BFA522 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7CD426A47E9400BFA522 /* ViewController.swift */; };
-		FD7E7CD826A47E9400BFA522 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD7E7CD626A47E9400BFA522 /* Main.storyboard */; };
 		FD7E7CDA26A47E9500BFA522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD7E7CD926A47E9500BFA522 /* Assets.xcassets */; };
 		FD7E7CDD26A47E9500BFA522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD7E7CDB26A47E9500BFA522 /* LaunchScreen.storyboard */; };
 		FD7E7CE826A47E9500BFA522 /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7CE726A47E9500BFA522 /* EventTests.swift */; };
 		FD7E7CF326A47E9500BFA522 /* EventUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7CF226A47E9500BFA522 /* EventUITests.swift */; };
+		FD7E7D1F26A4815D00BFA522 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7D1E26A4815D00BFA522 /* EventListViewModel.swift */; };
+		FD7E7D2726A4818500BFA522 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7D2626A4818500BFA522 /* EventListViewController.swift */; };
+		FD7E7D3026A481FC00BFA522 /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7D2F26A481FC00BFA522 /* EventsService.swift */; };
+		FD7E7D3826A4820600BFA522 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7D3726A4820600BFA522 /* BaseService.swift */; };
+		FD7E7D3D26A4821500BFA522 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7D3C26A4821500BFA522 /* APIRequest.swift */; };
+		FD7E7D4426A482C800BFA522 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7D4326A482C800BFA522 /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,9 +52,6 @@
 		F29DF83CDE5365A45CEB3D7F /* Pods_EventTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7E7CCD26A47E9400BFA522 /* Event.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Event.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7E7CD026A47E9400BFA522 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FD7E7CD226A47E9400BFA522 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FD7E7CD426A47E9400BFA522 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FD7E7CD726A47E9400BFA522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD7E7CD926A47E9500BFA522 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD7E7CDC26A47E9500BFA522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD7E7CDE26A47E9500BFA522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +61,12 @@
 		FD7E7CEE26A47E9500BFA522 /* EventUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7E7CF226A47E9500BFA522 /* EventUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUITests.swift; sourceTree = "<group>"; };
 		FD7E7CF426A47E9500BFA522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD7E7D1E26A4815D00BFA522 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
+		FD7E7D2626A4818500BFA522 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
+		FD7E7D2F26A481FC00BFA522 /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsService.swift; sourceTree = "<group>"; };
+		FD7E7D3726A4820600BFA522 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		FD7E7D3C26A4821500BFA522 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		FD7E7D4326A482C800BFA522 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +117,6 @@
 				7A17D244964408D58C3ECA5D /* Pods-EventTests.debug.xcconfig */,
 				2ACBDEA356200D6B70B1807D /* Pods-EventTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,10 +145,10 @@
 		FD7E7CCF26A47E9400BFA522 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				FD7E7CD026A47E9400BFA522 /* AppDelegate.swift */,
-				FD7E7CD226A47E9400BFA522 /* SceneDelegate.swift */,
-				FD7E7CD426A47E9400BFA522 /* ViewController.swift */,
-				FD7E7CD626A47E9400BFA522 /* Main.storyboard */,
+				FD7E7D4226A482B900BFA522 /* Model */,
+				FD7E7D2B26A481C500BFA522 /* Repository */,
+				FD7E7D1A26A4811C00BFA522 /* Scene */,
+				FD7E7D0D26A480AC00BFA522 /* App */,
 				FD7E7CD926A47E9500BFA522 /* Assets.xcassets */,
 				FD7E7CDB26A47E9500BFA522 /* LaunchScreen.storyboard */,
 				FD7E7CDE26A47E9500BFA522 /* Info.plist */,
@@ -167,6 +172,89 @@
 				FD7E7CF426A47E9500BFA522 /* Info.plist */,
 			);
 			path = EventUITests;
+			sourceTree = "<group>";
+		};
+		FD7E7D0D26A480AC00BFA522 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7CD026A47E9400BFA522 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FD7E7D1A26A4811C00BFA522 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7D1B26A4813400BFA522 /* EventList */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		FD7E7D1B26A4813400BFA522 /* EventList */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7D1D26A4814E00BFA522 /* ViewModel */,
+				FD7E7D1C26A4814600BFA522 /* View */,
+			);
+			path = EventList;
+			sourceTree = "<group>";
+		};
+		FD7E7D1C26A4814600BFA522 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7D2626A4818500BFA522 /* EventListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD7E7D1D26A4814E00BFA522 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7D1E26A4815D00BFA522 /* EventListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FD7E7D2B26A481C500BFA522 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7D2C26A481CD00BFA522 /* Remote */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FD7E7D2C26A481CD00BFA522 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7D2E26A481E500BFA522 /* EventsService */,
+				FD7E7D2D26A481D500BFA522 /* Common */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		FD7E7D2D26A481D500BFA522 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7D3726A4820600BFA522 /* BaseService.swift */,
+				FD7E7D3C26A4821500BFA522 /* APIRequest.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FD7E7D2E26A481E500BFA522 /* EventsService */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7D2F26A481FC00BFA522 /* EventsService.swift */,
+			);
+			path = EventsService;
+			sourceTree = "<group>";
+		};
+		FD7E7D4226A482B900BFA522 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD7E7D4326A482C800BFA522 /* Event.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +367,6 @@
 			files = (
 				FD7E7CDD26A47E9500BFA522 /* LaunchScreen.storyboard in Resources */,
 				FD7E7CDA26A47E9500BFA522 /* Assets.xcassets in Resources */,
-				FD7E7CD826A47E9400BFA522 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,9 +494,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD7E7CD526A47E9400BFA522 /* ViewController.swift in Sources */,
+				FD7E7D3026A481FC00BFA522 /* EventsService.swift in Sources */,
 				FD7E7CD126A47E9400BFA522 /* AppDelegate.swift in Sources */,
-				FD7E7CD326A47E9400BFA522 /* SceneDelegate.swift in Sources */,
+				FD7E7D2726A4818500BFA522 /* EventListViewController.swift in Sources */,
+				FD7E7D3826A4820600BFA522 /* BaseService.swift in Sources */,
+				FD7E7D3D26A4821500BFA522 /* APIRequest.swift in Sources */,
+				FD7E7D4426A482C800BFA522 /* Event.swift in Sources */,
+				FD7E7D1F26A4815D00BFA522 /* EventListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,14 +536,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FD7E7CD626A47E9400BFA522 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FD7E7CD726A47E9400BFA522 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FD7E7CDB26A47E9500BFA522 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -589,6 +672,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4FGAJ25MKJ;
 				INFOPLIST_FILE = Event/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -609,6 +693,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4FGAJ25MKJ;
 				INFOPLIST_FILE = Event/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
