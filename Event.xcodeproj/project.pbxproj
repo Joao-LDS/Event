@@ -12,7 +12,6 @@
 		FD7E7CD126A47E9400BFA522 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7CD026A47E9400BFA522 /* AppDelegate.swift */; };
 		FD7E7CDA26A47E9500BFA522 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD7E7CD926A47E9500BFA522 /* Assets.xcassets */; };
 		FD7E7CDD26A47E9500BFA522 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD7E7CDB26A47E9500BFA522 /* LaunchScreen.storyboard */; };
-		FD7E7CE826A47E9500BFA522 /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7CE726A47E9500BFA522 /* EventTests.swift */; };
 		FD7E7CF326A47E9500BFA522 /* EventUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7CF226A47E9500BFA522 /* EventUITests.swift */; };
 		FD7E7D1F26A4815D00BFA522 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7D1E26A4815D00BFA522 /* EventListViewModel.swift */; };
 		FD7E7D2726A4818500BFA522 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7D2626A4818500BFA522 /* EventListViewController.swift */; };
@@ -34,6 +33,7 @@
 		FD7E7DC326A4A76C00BFA522 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7DC226A4A76C00BFA522 /* MapViewController.swift */; };
 		FD7E7DE526A4BD4900BFA522 /* events.json in Resources */ = {isa = PBXBuildFile; fileRef = FD7E7DE426A4BD4900BFA522 /* events.json */; };
 		FD7E7DEA26A4BD7500BFA522 /* EventsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7E7DE926A4BD7500BFA522 /* EventsServiceMock.swift */; };
+		FD7E7E0126A4C33C00BFA522 /* event.json in Resources */ = {isa = PBXBuildFile; fileRef = FD7E7E0026A4C33C00BFA522 /* event.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,6 @@
 		FD7E7CDC26A47E9500BFA522 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD7E7CDE26A47E9500BFA522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD7E7CE326A47E9500BFA522 /* EventTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD7E7CE726A47E9500BFA522 /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
 		FD7E7CE926A47E9500BFA522 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD7E7CEE26A47E9500BFA522 /* EventUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7E7CF226A47E9500BFA522 /* EventUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUITests.swift; sourceTree = "<group>"; };
@@ -91,6 +90,7 @@
 		FD7E7DC226A4A76C00BFA522 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FD7E7DE426A4BD4900BFA522 /* events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = events.json; sourceTree = "<group>"; };
 		FD7E7DE926A4BD7500BFA522 /* EventsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsServiceMock.swift; sourceTree = "<group>"; };
+		FD7E7E0026A4C33C00BFA522 /* event.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = event.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +181,6 @@
 		FD7E7CE626A47E9500BFA522 /* EventTests */ = {
 			isa = PBXGroup;
 			children = (
-				FD7E7CE726A47E9500BFA522 /* EventTests.swift */,
 				FD7E7CE926A47E9500BFA522 /* Info.plist */,
 				FD7E7DE926A4BD7500BFA522 /* EventsServiceMock.swift */,
 			);
@@ -359,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				FD7E7DE426A4BD4900BFA522 /* events.json */,
+				FD7E7E0026A4C33C00BFA522 /* event.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -470,6 +470,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD7E7E0126A4C33C00BFA522 /* event.json in Resources */,
 				FD7E7CDD26A47E9500BFA522 /* LaunchScreen.storyboard in Resources */,
 				FD7E7CDA26A47E9500BFA522 /* Assets.xcassets in Resources */,
 				FD7E7DE526A4BD4900BFA522 /* events.json in Resources */,
@@ -605,7 +606,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD7E7DEA26A4BD7500BFA522 /* EventsServiceMock.swift in Sources */,
-				FD7E7CE826A47E9500BFA522 /* EventTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
